@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Digits</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Sum of Digits</h1>
+<input type="number" id="numberInput" placeholder="Enter a number">
+<button onclick="sumDigits()">Add Digits Together</button>
+<p id="result"></p>
+
+<script>
+    function sumDigits() {
+        const input = parseInt(document.getElementById('numberInput').value);
+        const result = document.getElementById('result');
+
+        if (input < 1) {
+            result.textContent = 'Please enter a number greater than or equal to 1.';
+            return;
+        }
+
+        let sum = 0;
+        let output = `N = ${input}: `;
+
+        for (let i = 1; i <= input; i++) {
+            sum += i;
+            output += i;
+
+            if (i !== input) {
+                output += " + ";
+            }
+        }
+
+        output += ` = ${sum}<br>Answer: ${sum}`;
+        result.innerHTML = output;
+    }
+</script>
+
+</body>
+</html>
